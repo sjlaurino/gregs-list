@@ -6,10 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Greg's List</title>
-  <link rel="stylesheet" href="app/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body>
+<body class="container-fluid">
+  <div class="row">
+    <div class="col text-center">
+      <h1>Welcome to Greg's List</h1>
+    </div>
+    <div class="col">
+      <form onsubmit="app.controllers.jobController.addJob(event)">
+        <input type="text" name="title" placeholder="Job Title" required>
+        <input type="number" name="salary" placeholder="Salary" required>
+        <input type="text" name="description" placeholder="Job Description" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div id="job-listings" class="section">
+
+    </div>
+  </div>
 
 
   <script type="module" src="app/main.js"></script>
