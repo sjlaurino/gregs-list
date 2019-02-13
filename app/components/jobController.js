@@ -32,7 +32,8 @@ export default class JobController {
     let newJob = {
       title: form.title.value,
       salary: form.salary.value,
-      description: form.description.value
+      description: form.description.value,
+      image: form.image.value
     }
     jobServ.addJob(newJob)
   }

@@ -13,22 +13,23 @@
 
 <body class="container-fluid">
   <div class="row">
-    <div class="col text-center">
+    <div class="col text-center mt-4">
       <h1>Welcome to Greg's List</h1>
     </div>
-    <div class="col">
+  </div>
+  <div class="row">
+    <div class="col d-flex justify-content-center mt-3">
       <form onsubmit="app.controllers.jobController.addJob(event)">
         <input type="text" name="title" placeholder="Job Title" required>
         <input type="number" name="salary" placeholder="Salary" required>
         <input type="text" name="description" placeholder="Job Description" required>
+        <input type="url" name="image" placeholder="Image">
         <button type="submit">Submit</button>
       </form>
     </div>
   </div>
-  <div class="row">
-    <div id="job-listings" class="section">
+  <div class="row d-flex justify-content-center" id="job-listings">
 
-    </div>
   </div>
 
 
