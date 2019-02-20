@@ -1,10 +1,8 @@
 import JobService from "../components/jobService.js"
-import Job from "../modules/job.js";
 
-let jobServ = new JobService()
+let _jobServ = new JobService()
 
 function drawJobs() {
-  let jobs = jobServ.Jobs
   //initialize a template variable
   //iterate over the jobs array and build up the template with each individual job's template
   //after the loop is complete, then set the innerHTML of an element on the DOM equal to the template you just built
@@ -12,17 +10,26 @@ function drawJobs() {
   // jobs.forEach(job => {
   //   template += job.getTemplate()
   // })
-  for (let i = 0; i < jobs.length; i++) {
-    let job = jobs[i]
-    template += job.getTemplate()
-  }
+
+  _jobServ.Jobs.forEach(j => {
+    template += j.getTemplate()
+  })
   document.getElementById('job-listings').innerHTML = template
+  document.querySelector('#form-content').innerHTML =
+    `<form onsubmit="app.controllers.jobController.addJob(event)">
+  <input type="text" name="title" placeholder="Job Title" required>
+  <input type="number" name="salary" placeholder="Salary" required>
+  <input type="text" name="description" placeholder="Job Description" required>
+  <input type="url" name="image" placeholder="Image">
+  <button type="submit">Submit</button>
+  </form>`
 }
+
 
 export default class JobController {
   constructor() {
-    drawJobs()
-    jobServ.addSubscriber('jobs', drawJobs)
+    _jobServ.addSubscriber('jobs', drawJobs)
+
   }
 
   addJob(event) {
@@ -35,6 +42,11 @@ export default class JobController {
       description: form.description.value,
       image: form.image.value
     }
-    jobServ.addJob(newJob)
+    _jobServ.addJob(newJob)
+    form.reset()
+  }
+
+  grabJobs() {
+    _jobServ.getApiJobs()
   }
 }

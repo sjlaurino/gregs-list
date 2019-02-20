@@ -18,21 +18,23 @@
     </div>
   </div>
   <div class="row">
-    <div class="col d-flex justify-content-center mt-3">
-      <form onsubmit="app.controllers.jobController.addJob(event)">
-        <input type="text" name="title" placeholder="Job Title" required>
-        <input type="number" name="salary" placeholder="Salary" required>
-        <input type="text" name="description" placeholder="Job Description" required>
-        <input type="url" name="image" placeholder="Image">
-        <button type="submit">Submit</button>
-      </form>
+    <div class="col">
+      <button onclick="app.controllers.jobController.grabJobs()" type="button" class="btn btn-outline-secondary">See
+        Jobs</button>
+      <button onclick="app.controllers.houseController.grabHouses()" type="button" class="btn btn-outline-secondary">See
+        Houses</button>
+    </div>
+  </div>
+  <div class="row">
+    <div id="form-content" class="col d-flex justify-content-center mt-3">
+
     </div>
   </div>
   <div class="row d-flex justify-content-center" id="job-listings">
 
   </div>
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
   <script type="module" src="app/main.js"></script>
 </body>
 
