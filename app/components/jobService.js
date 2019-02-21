@@ -55,8 +55,9 @@ export default class JobService {
 
   addJob(rawJob) {
     let newJob = new Job(rawJob)
-    // _state.jobs.push(newJob)
-    let jobsArray = [..._state.jobs, newJob]
-    setState('jobs', jobsArray)
+    _jobApi.post('', newJob)
+      .then(res => {
+        this.getApiJobs()
+      })
   }
 }

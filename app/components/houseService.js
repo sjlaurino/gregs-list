@@ -34,7 +34,7 @@ export default class HouseService {
 
   addHouse(rawHouse) {
     let newHouse = new House(rawHouse)
-    _houseApi.post('houses', newHouse)
+    _houseApi.post('', newHouse)
       .then(res => {
         this.getApiHouses()
       })
