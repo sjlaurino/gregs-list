@@ -65,4 +65,8 @@ export default class HouseController {
     // this.price = data.price
     // this.description = data.description || "N/A"
   }
+
+  removeHouse(id) {
+    _hs.removeHouse(id)
+  }
 }

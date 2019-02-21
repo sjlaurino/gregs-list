@@ -55,6 +55,9 @@ export default class JobController {
     // this.hours = data.hours
     // this.company = data.company
   }
+  removeJob(id) {
+    _jobServ.removeJob(id)
+  }
 
   grabJobs() {
     _jobServ.getApiJobs()

@@ -1,6 +1,7 @@
 
 export default class Job {
   constructor(data) {
+    this._id = data._id
     this.jobTitle = data.jobTitle
     this.rate = data.rate
     this.description = data.description
@@ -15,6 +16,7 @@ export default class Job {
         <h5 class="card-title">Company: ${this.company} Job: ${this.jobTitle}</h5>
         <p class="card-text">$${this.rate}per/hour  Hours: ${this.hours}.</p>
         <p>${this.description}</p>
+         <button onclick="app.controllers.jobController.removeJob()" type="button" class="btn btn-outline-danger">Delete Job</button>
       </div>
     </div>`
   }

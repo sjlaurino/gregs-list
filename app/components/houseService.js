@@ -39,6 +39,13 @@ export default class HouseService {
         this.getApiHouses()
       })
   }
+  removeHouse(id) {
+    //dont need houses as parameter because I have it in the base URL
+    _houseApi.delete('/' + id)
+      .then(res => {
+        this.getApiHouses()
+      })
+  }
 
   get Houses() {
     return _state.houses

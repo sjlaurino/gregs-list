@@ -60,4 +60,11 @@ export default class JobService {
         this.getApiJobs()
       })
   }
+
+  removeJob(id) {
+    _jobApi.delete('/' + id)
+      .then(res => {
+        this.getApiJobs()
+      })
+  }
 }
