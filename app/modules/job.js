@@ -7,6 +7,7 @@ export default class Job {
     this.description = data.description
     this.hours = data.hours
     this.company = data.company
+    this.imgUrl = data.imgUrl || 'https://place-hold.it/300x500?text=Job%20Pic%20Here'
   }
 
   getTemplate() {
@@ -16,7 +17,7 @@ export default class Job {
         <h5 class="card-title">Company: ${this.company} Job: ${this.jobTitle}</h5>
         <p class="card-text">$${this.rate}per/hour  Hours: ${this.hours}.</p>
         <p>${this.description}</p>
-         <button onclick="app.controllers.jobController.removeJob()" type="button" class="btn btn-outline-danger">Delete Job</button>
+         <button onclick="app.controllers.jobController.removeJob('${this._id}')" type="button" class="btn btn-outline-danger">Delete Job</button>
       </div>
     </div>`
   }

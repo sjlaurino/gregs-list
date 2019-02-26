@@ -3,7 +3,7 @@ import House from "../modules/house.js";
 
 // @ts-ignore
 let _houseApi = axios.create({
-  baseURL: 'https://bcw-gregslist.herokuapp.com/api/houses'
+  baseURL: '//localhost:3000/api/houses'
 })
 
 let _state = {
@@ -41,7 +41,7 @@ export default class HouseService {
   }
   removeHouse(id) {
     //dont need houses as parameter because I have it in the base URL
-    _houseApi.delete('/' + id)
+    _houseApi.delete('' + id)
       .then(res => {
         this.getApiHouses()
       })
@@ -57,7 +57,7 @@ export default class HouseService {
     _houseApi.get('')
       .then(res => {
         console.log('4: ', res)
-        let data = res.data.data.map(h => new House(h))
+        let data = res.data.map(h => new House(h))
         setState('houses', data)
         console.log(8);
 
